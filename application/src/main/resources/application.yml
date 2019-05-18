@@ -1,0 +1,7 @@
+server:
+  port: 8093
+  servlet:
+    context-path: /qa
+logging:
+  file: logs/qa.log
+  level.org.springframework: INFO

@@ -1,0 +1,34 @@
+buildscript {
+    ext {
+        springBootVersion = '2.1.5.RELEASE'
+        moduleName='com.cb.app'
+        testDependencies='org.junit.jupiter.api,org.mockito'
+    }
+    repositories {
+        mavenCentral()
+    }
+    dependencies{
+
+    }
+}
+
+
+dependencies{
+
+    compile("org.springframework.boot:spring-boot-starter-web:$springBootVersion") {
+        exclude module: "spring-boot-starter-tomcat"
+    }
+    compile "org.springframework.boot:spring-boot-starter-jetty:$springBootVersion"
+    compile "javax.servlet:javax.servlet-api:4.0.1"
+
+    compileOnly 'org.projectlombok:lombok:1.18.8'
+    compile 'org.mapstruct:mapstruct-processor:1.3.0.Final'
+    annotationProcessor 'org.projectlombok:lombok:1.18.8'
+
+    compileOnly "org.springframework.boot:spring-boot-configuration-processor:$springBootVersion"
+
+    testCompile "org.springframework.boot:spring-boot-starter-test:$springBootVersion"
+    testCompile "org.junit.jupiter:junit-jupiter-api:$junitJupiter"
+    testCompile "org.mockito:mockito-core:$mockitoCore"
+    testRuntime "org.junit.jupiter:junit-jupiter-engine:$junitJupiter"
+}

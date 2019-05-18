@@ -1,0 +1,10 @@
+ext{
+    moduleName='com.cb.app'
+    testDependencies='org.junit.jupiter.api,org.mockito'
+}
+
+dependencies{
+    testCompile "org.junit.jupiter:junit-jupiter-api:$junitJupiter"
+    testCompile "org.mockito:mockito-core:$mockitoCore"
+    testRuntime "org.junit.jupiter:junit-jupiter-engine:$junitJupiter"
+}
