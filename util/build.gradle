@@ -1,9 +1,12 @@
-ext{
-    moduleName='com.cb.app'
-    testDependencies='org.junit.jupiter.api,org.mockito'
+ext {
+    moduleName = 'com.cb.util'
+    testDependencies = 'org.junit.jupiter.api,org.mockito'
 }
 
-dependencies{
+dependencies {
+    compile "org.slf4j:slf4j-api:1.7.26"
+    compile "ch.qos.logback:logback-classic:1.2.3"
+
     testCompile "org.junit.jupiter:junit-jupiter-api:$junitJupiter"
     testCompile "org.mockito:mockito-core:$mockitoCore"
     testRuntime "org.junit.jupiter:junit-jupiter-engine:$junitJupiter"

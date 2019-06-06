@@ -1,10 +1,11 @@
-open module com.cb.app{
+open module com.cb.app {
     requires java.sql;
     requires spring.boot;
     requires spring.boot.autoconfigure;
     requires spring.beans;
     requires spring.core;
-    //requires static lombok;
+    requires spring.aop;
+    //requires org.aspectj.weaver;
     requires java.annotation;
     requires spring.expression;
     requires spring.context;
@@ -14,5 +15,6 @@ open module com.cb.app{
     requires spring.boot.starter.logging;
     requires spring.boot.starter;
     requires javax.servlet.api;
+    requires com.cb.util;
 
 }

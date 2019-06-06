@@ -32,8 +32,8 @@ public class Main {
     @PostConstruct
     public void serverStatus() {
         try {
-             //log.info("server running at local http://{}:{}{}", InetAddress.getLoopbackAddress().getHostAddress(), port, contextPath);
-             //log.info("server running at remote http://{}:{}{}", InetAddress.getLocalHost().getHostAddress(), port, contextPath);
+            //log.info("server running at local http://{}:{}{}", InetAddress.getLoopbackAddress().getHostAddress(), port, contextPath);
+            //log.info("server running at remote http://{}:{}{}", InetAddress.getLocalHost().getHostAddress(), port, contextPath);
         } catch (Exception ex) {
             ex.printStackTrace();
         }
