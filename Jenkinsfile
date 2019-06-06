@@ -1,21 +1,12 @@
-pipeline {
-    agent any
+node('master'){
+    var gradle = tool name: 'gradle-5.3.1', type: 'gradle'
 
-    stages {
-        stage('Build') {
-            steps {
-                echo 'Building..'
-            }
-        }
-        stage('Test') {
-            steps {
-                echo 'Testing..'
-            }
-        }
-        stage('Deploy') {
-            steps {
-                echo 'Deploying....'
-            }
-        }
+    stage('SCM'){
+        checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: 'github-credential', url: 'https://github.com/sharadprsn/spring-boot-java-11.git']]])
     }
+    stage('build'){
+        sh label: '', script: 'gradle clean build'
+    }
+
+
 }
