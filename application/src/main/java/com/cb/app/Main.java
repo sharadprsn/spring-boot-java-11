@@ -2,6 +2,7 @@ package com.cb.app;
 
 
 import com.cb.app.component.InitComponent;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.Banner;
 import org.springframework.boot.SpringApplication;
@@ -10,8 +11,9 @@ import org.springframework.boot.context.properties.EnableConfigurationProperties
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
 import javax.annotation.PostConstruct;
+import java.net.InetAddress;
 
-
+@Slf4j
 @EnableWebMvc
 @SpringBootApplication
 @EnableConfigurationProperties(InitComponent.class)
@@ -32,8 +34,8 @@ public class Main {
     @PostConstruct
     public void serverStatus() {
         try {
-            //log.info("server running at local http://{}:{}{}", InetAddress.getLoopbackAddress().getHostAddress(), port, contextPath);
-            //log.info("server running at remote http://{}:{}{}", InetAddress.getLocalHost().getHostAddress(), port, contextPath);
+            log.info("server running at local http://{}:{}{}", InetAddress.getLoopbackAddress().getHostAddress(), port, contextPath);
+            log.info("server running at remote http://{}:{}{}", InetAddress.getLocalHost().getHostAddress(), port, contextPath);
         } catch (Exception ex) {
             ex.printStackTrace();
         }

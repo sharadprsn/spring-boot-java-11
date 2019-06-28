@@ -6,6 +6,7 @@ open module com.cb.app {
     requires spring.core;
     requires spring.aop;
     //requires org.aspectj.weaver;
+    requires static lombok;
     requires java.annotation;
     requires spring.expression;
     requires spring.context;
