@@ -10,4 +10,7 @@ multibranchPipelineJob('spring-boot-java-11') {
             numToKeep(20)
         }
     }
+    triggers {
+        githubPush()
+    }
 }

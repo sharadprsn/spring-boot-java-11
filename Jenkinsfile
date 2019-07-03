@@ -6,7 +6,10 @@ node('master'){
     }
     stage('build'){
         def gradle = "${gradleHome}/bin/gradle"
-        sh label: '', script: "${gradle} clean build"
+        sh label: '', script: "${gradle} clean build assemble"
+    }
+    stage('Build Docker Image'){
+        sh "docker build -t sharadprsn/sample-app:${BUILD_NUMBER} ."
     }
 
 
