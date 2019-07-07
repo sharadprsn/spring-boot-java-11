@@ -15,9 +15,6 @@ node('master'){
         }else{
             echo "Docker image not built."
         }
-
-
-
     }
 
 
