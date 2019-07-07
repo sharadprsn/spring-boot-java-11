@@ -10,7 +10,11 @@ node('master'){
         sh label: '', script: "${gradle} clean build assemble"
     }
     stage('Build Docker Image'){
-        sh "sudo docker build -t sharadprsn/sample-app:${BUILD_NUMBER} ."
+        when { branch 'Release-*' }
+        steps {
+            sh "sudo docker build -t sharadprsn/sample-app:${BUILD_NUMBER} ."
+        }
+
     }
 
 
