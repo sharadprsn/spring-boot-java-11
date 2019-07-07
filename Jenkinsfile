@@ -10,10 +10,13 @@ node('master'){
         sh label: '', script: "${gradle} clean build assemble"
     }
     stage('Build Docker Image'){
-        when { branch 'Release-*' }
-        steps {
-            sh "sudo docker build -t sharadprsn/sample-app:${BUILD_NUMBER} ."
+        if(env.BRANCH_NAME.contains("Release-")){
+            sh "sudo docker build -t sharadprsn/sample-app-${env.BRANCH_NAME}:${BUILD_NUMBER} ."
+        }else{
+            echo "Docker image not built."
         }
+
+
 
     }
 
